@@ -1,0 +1,6 @@
+.mui-filterField {
+  display: flex;
+  gap: 2px;
+  align-items: baseline;
+  /* align-items: start; */
+}
