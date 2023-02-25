@@ -1,8 +1,8 @@
-import './App.css'
-import FilterField from './components/filterField/FilterField'
+import './App.css';
+import FilterField from './components/filterField/FilterField';
 
 function App() {
-  // TODO : 
+  // TODO :
   /*
   ! TODOS : 
   * Todo 1 - Add locales i18next - done
@@ -19,16 +19,20 @@ function App() {
 
       <div className="card">
         <FilterField
-          type='number'
-          locale='en'
+          type="number"
+          locale="en"
           onFilterChange={(filter) => console.log('Ehh filter changed', filter)}
-          onFilterValueChange={(filter, value) => console.log('Filter value changed', filter, value)}
+          onFilterValueChange={(filter, value) =>
+            console.log('Filter value changed', filter, value)
+          }
         />
         <FilterField
-          type='text'
-          locale='en'
+          type="text"
+          locale="en"
           onFilterChange={(filter) => console.log('Ehh filter changed', filter)}
-          onFilterValueChange={(filter, value) => console.log('Filter value changed', filter, value)}
+          onFilterValueChange={(filter, value) =>
+            console.log('Filter value changed', filter, value)
+          }
         />
         {/*
         <FilterField
@@ -48,7 +52,7 @@ function App() {
             })}
         </div> */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

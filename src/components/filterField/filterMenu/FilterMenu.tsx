@@ -3,19 +3,16 @@ import { useTranslation } from 'react-i18next';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-
 import { getAllFiltersByType, getFilterByType } from './helpers';
 import { IconButton, ListItemIcon, ListItemText } from '@mui/material';
 import { FilterMenuProps } from '../types';
-
-
 
 export default function FilterMenu(props: FilterMenuProps) {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const { filterType, filter, onChange } = props
+  const { filterType, filter, onChange } = props;
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -25,17 +22,16 @@ export default function FilterMenu(props: FilterMenuProps) {
   };
   const handleItemClick = (itemFilter: string) => {
     filter !== itemFilter && onChange(itemFilter);
-    handleClose()
-  }
+    handleClose();
+  };
 
-  const icone = getFilterByType(filterType, filter)?.icon
-  const allFilters = getAllFiltersByType(filterType)
-
+  const icone = getFilterByType(filterType, filter)?.icon;
+  const allFilters = getAllFiltersByType(filterType);
 
   return (
     <div>
       <IconButton
-        className='mui-filterField-icon'
+        className="mui-filterField-icon"
         aria-haspopup="true"
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
@@ -45,7 +41,7 @@ export default function FilterMenu(props: FilterMenuProps) {
         {icone}
       </IconButton>
       <Menu
-        className='mui-filterField-menu'
+        className="mui-filterField-menu"
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -57,7 +53,7 @@ export default function FilterMenu(props: FilterMenuProps) {
         {allFilters.map((filterOption, index) => (
           <MenuItem
             key={index}
-            className='mui-filterField-menuItem'
+            className="mui-filterField-menuItem"
             onClick={() => handleItemClick(filterOption.filter)}
           >
             <ListItemIcon>{filterOption.icon}</ListItemIcon>

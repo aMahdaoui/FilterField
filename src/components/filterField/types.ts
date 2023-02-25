@@ -12,10 +12,7 @@ export type FilterOption = {
 export type FilterFieldProps = {
   type: FilterType;
   onFilterChange?: (filter: string) => void;
-  onFilterValueChange?: (
-    filter: string,
-    filterValue: (string | number)[]
-  ) => void;
+  onFilterValueChange?: (filter: string, filterValue: (string | number)[]) => void;
   locale?: string;
 };
 export type FilterMenuProps = {
