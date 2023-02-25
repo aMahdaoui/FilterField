@@ -14,6 +14,7 @@ import { OnDate } from "../../../assets/icons/OnDate";
 import { OnDateTime } from "../../../assets/icons/OnDateTime";
 import { RangeDate } from "../../../assets/icons/RangeDate";
 import { Filter, FilterOption, FilterType } from "../types";
+import { Between } from "../../../assets/icons/Between";
 
 
 const FILTERS_BY_TYPE = (type: FilterType): Map<string, FilterOption> => {
@@ -94,7 +95,17 @@ const FILTERS_BY_TYPE = (type: FilterType): Map<string, FilterOption> => {
                     filter: FILTERS.GTE.filter,
                     filterName: FILTERS.GTE.name,
                     icon: <GreaterEquals />
-                }]
+                }],
+                [FILTERS.BETWEEN.filter, {
+                    filter: FILTERS.BETWEEN.filter,
+                    filterName: FILTERS.BETWEEN.name,
+                    icon: <Between />
+                }],
+                // [FILTERS.NOT_BETWEEN.filter, {
+                //     filter: FILTERS.NOT_BETWEEN.filter,
+                //     filterName: FILTERS.NOT_BETWEEN.name,
+                //     icon: <NotBetween />
+                // }]
 
             ])
         case FILTER_TEXT:

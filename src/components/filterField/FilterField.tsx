@@ -1,43 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 
 import FilterMenu from './filterMenu/FilterMenu'
 import InputFilterField from './inputFilterField/InputFilterField';
 
-import { FILTER_DATE, FILTER_TEXT } from './config/constants'
+import { FILTER_TEXT } from './config/constants'
 import { getDefaultFilterByType } from './filterMenu/helpers'
 import { FilterFieldProps, FilterType } from './types'
 
-import './config/i18n';
+/* for handling Date Filter fields */
+// import DateFilterField from './dateFilterField/DateFilterField';
+
+import '../../config/i18n/i18n';
 import './filterField.css'
+
 
 
 function TextFilter(props: FilterFieldProps) {
 
     const { type, locale } = props
 
-    // get default filter by type
-    const defaultFilter = getDefaultFilterByType(type as FilterType)
-
     const [lang, setLang] = useState('en')
-    const [filter, setFilter] = useState(defaultFilter)
-    const [filterValue, setFilterValue] = useState<string | number>('')
-
-
-    // useTranslation
+    const [filter, setFilter] = useState('CONTAINS')
+    const [filterValue, setFilterValue] = useState<(string | number)[]>(['', ''])
     const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+        const defaultFilter = getDefaultFilterByType(type as FilterType)
+        setFilter(defaultFilter)
+    }, [type])
+
+
     if (locale && locale !== lang) {
         setLang(locale)
         i18n.changeLanguage(locale)
     }
 
-
     const onFilterChange = (filter: string) => {
-        // event.preventDefault()
         setFilter(filter)
         props.onFilterChange && props.onFilterChange(filter)
     }
-    const onValueChange = (value: string | number) => {
+    const onValueChange = (value: (string | number)[]) => {
         setFilterValue(value);
         props.onFilterValueChange && props.onFilterValueChange(filter, value)
     }
@@ -48,16 +51,25 @@ function TextFilter(props: FilterFieldProps) {
                 filter={filter}
                 filterType={(type as FilterType) || FILTER_TEXT}
                 onChange={onFilterChange}
-                lang={lang}
             />
+            <InputFilterField
+                filterType={type}
+                filter={filter}
+                filterValue={filterValue}
+                onChange={onValueChange}
+            />
+
+            {/* 
+            // TODO : Will be handled when supporting Date filter
+            
             {type === FILTER_DATE
-                ? <h1>Date</h1>
+                ? <DateFilterField />
                 : <InputFilterField
                     type={type}
                     filterValue={filterValue}
                     onChange={onValueChange}
                 />
-            }
+            } */}
         </div>
     )
 }

@@ -12,7 +12,10 @@ export type FilterOption = {
 export type FilterFieldProps = {
   type: FilterType;
   onFilterChange?: (filter: string) => void;
-  onFilterValueChange?: (filter: string, filterValue: string | number) => void;
+  onFilterValueChange?: (
+    filter: string,
+    filterValue: (string | number)[]
+  ) => void;
   locale?: string;
 };
 export type FilterMenuProps = {
@@ -24,9 +27,12 @@ export type FilterMenuProps = {
 
 export type InputFilterFieldProps = {
   // type: Omit<FilterType, 'date'>;
-  type: 'text' | 'number';
-  filterValue: string | number;
-  locale?: string;
-  onChange?: (filterValue: string) => void;
+  // type: 'text' | 'number' | ;
+  filterType: Omit<FilterType, 'date'>;
+  filter: string;
+  filterValue: (string | number)[];
+  onChange?: (filterValue: (string | number)[]) => void;
+  // translator?: any;
+  // locale?: string;
   // dataType?: 'json' | 'xml'
 };

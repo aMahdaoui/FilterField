@@ -1,0 +1,27 @@
+{
+    "translation": {
+        "filters": {
+            "EE": "Égal à",
+            "NE": "N'est pas égal",
+            "GT": "Supérieur à",
+            "LT": "Moins de",
+            "GTE": "Supérieur ou égal à",
+            "LTE": "Inférieur ou égal à",
+            "BETWEEN": "Entre",
+            "NOT_BETWEEN": "Pas entre",
+            "CONTAINS": "Contient",
+            "NOT_CONTAINS": "Ne contient pas",
+            "IN": "En",
+            "NOT_IN": "Pas en",
+            "ON_DATE": "A cette date",
+            "ON_DATE_TIME": "A cette date et heure",
+            "NOT_ON_DATE": "Pas à cette date",
+            "BEFORE_DATE_TIME": "Avant cette date et cette heure",
+            "AFTER_DATE_TIME": "Après cette date et cette heure",
+            "DATE_RANGE": "Intervale de dates"
+        },
+        "input": {
+            "placeholder": "votre valeur ..."
+        }
+    }
+}

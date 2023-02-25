@@ -28,7 +28,6 @@ export default function FilterMenu(props: FilterMenuProps) {
     handleClose()
   }
 
-  // console.log('hollla yelloo', t, i18n)
   const icone = getFilterByType(filterType, filter)?.icon
   const allFilters = getAllFiltersByType(filterType)
 
