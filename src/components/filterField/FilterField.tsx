@@ -23,7 +23,7 @@ function TextFilter(props: FilterFieldProps) {
     const [lang, setLang] = useState('en')
     const [filter, setFilter] = useState('CONTAINS')
     const [filterValue, setFilterValue] = useState<(string | number)[]>(['', ''])
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     useEffect(() => {
         const defaultFilter = getDefaultFilterByType(type as FilterType)

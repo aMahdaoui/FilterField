@@ -140,7 +140,7 @@ const FILTERS_BY_TYPE = (type: FilterType): Map<string, FilterOption> => {
 // export const NUMBER_FILTERS = Array.from(FILTERS_BY_TYPE('text')).map((value, key) => value)
 
 export const getAllFiltersByType = (filterType: FilterType): Array<FilterOption> | [] => {
-    let result: Array<FilterOption> = []
+    const result: Array<FilterOption> = []
     FILTERS_BY_TYPE(filterType).forEach((filter) => {
         result.push(filter)
     })

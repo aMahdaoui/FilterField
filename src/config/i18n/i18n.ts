@@ -29,8 +29,8 @@ i18n
       useSuspense: true,
     },
   }),
-  (err: any, t: any) => {
-    if (err) return console.log('something went wrong loading', err);
+  (err: Error, t: any) => {
+    if (err) return console.error('something went wrong loading', err);
     t('key'); // -> same as i18next.t
   };
 
