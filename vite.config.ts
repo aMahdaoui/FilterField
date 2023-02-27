@@ -21,6 +21,11 @@ export default defineConfig((configEnv) => ({
     //   linters: [new EsLinter({ configEnv })],
     // }),
   ],
+  test: {
+    global: true,
+    environment: 'jsdom',
+    setupFiles: './tests/setup.js',
+  },
   build: {
     lib: {
       entry: resolve('src', 'components/index.ts'),
