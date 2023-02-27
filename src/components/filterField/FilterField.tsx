@@ -14,7 +14,7 @@ import { FilterFieldProps, FilterType } from './types';
 import '../../config/i18n/i18n';
 import './filterField.css';
 
-function TextFilter(props: FilterFieldProps) {
+function FilterField(props: FilterFieldProps) {
   const { type, locale } = props;
 
   const [lang, setLang] = useState('en');
@@ -70,4 +70,4 @@ function TextFilter(props: FilterFieldProps) {
   );
 }
 
-export default TextFilter;
+export default FilterField;
