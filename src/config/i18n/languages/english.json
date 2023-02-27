@@ -1,7 +1,7 @@
 {
   "translation": {
     "filters": {
-      "EE": "Equals english",
+      "EE": "Equals",
       "NE": "Does not equal",
       "GT": "Greater than",
       "LT": "Less than",
@@ -9,7 +9,7 @@
       "LTE": "Less than or equal to",
       "BETWEEN": "Between",
       "NOT_BETWEEN": "Not between",
-      "CONTAINS": "Contains english",
+      "CONTAINS": "Contains",
       "NOT_CONTAINS": "Not contains",
       "IN": "In",
       "NOT_IN": "Not in",
