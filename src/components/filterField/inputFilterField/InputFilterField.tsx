@@ -5,6 +5,7 @@ import { extractFilterValueFromRangeValues, revealValueBasedOnFilter } from './h
 
 import {
   FILTER_NUMBER,
+  ID_FILTER_INPUT,
   ID_RANGE_FILTER_1,
   ID_RANGE_FILTER_2,
   RANGE_FILTER,
@@ -44,35 +45,41 @@ function InputFilterField(props: InputFilterFieldProps) {
     }
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && props.onBlur) {
+      onValueBlur(event as unknown as React.FocusEvent<HTMLInputElement>);
+    }
+  };
+
+  const _sharedProps = {
+    type: filterType as string || 'text',
+    placeholder: t('input.placeholder') || '',
+    onChange: onValueChange,
+    onBlur: onValueBlur,
+    onKeyDown: handleKeyDown,
+  }
+
   if (filterType === FILTER_NUMBER && RANGE_FILTER.includes(filter)) {
     return (
       <div style={{ display: 'flex', alignItems: 'flex-end' }}>
         <Input
           id={ID_RANGE_FILTER_1}
-          type={filterType as string}
-          // placeholder={t('input.placeholderVal1') || ''}
-          placeholder={'val 1'}
-          onChange={onValueChange}
-          onBlur={onValueBlur}
+          {..._sharedProps}
+        // placeholder={'val 1'}
         />
         <span style={{ margin: '0px 20px' }}>{'&'}</span>
         <Input
           id={ID_RANGE_FILTER_2}
-          type={filterType as string}
-          placeholder={'val 2'}
-          onChange={onValueChange}
-          onBlur={onValueBlur}
+          {..._sharedProps}
+        // placeholder={'val 2'}
         />
       </div>
     );
   }
   return (
     <Input
-      id={'filterinput'}
-      type={(filterType as string) || 'text'}
-      placeholder={t('input.placeholder') || ''}
-      onChange={onValueChange}
-      onBlur={onValueBlur}
+      id={ID_FILTER_INPUT}
+      {..._sharedProps}
     />
   );
 }

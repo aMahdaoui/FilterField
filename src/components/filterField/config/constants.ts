@@ -84,5 +84,6 @@ export const FILTER_NUMBER = 'number';
 export const FILTER_DATE = 'date';
 export const RANGE_FILTER = ['BETWEEN', 'NOT_BETWEEN'];
 
+export const ID_FILTER_INPUT = 'inputFilter';
 export const ID_RANGE_FILTER_1 = 'rangeFilter1';
 export const ID_RANGE_FILTER_2 = 'rangeFilter2';
