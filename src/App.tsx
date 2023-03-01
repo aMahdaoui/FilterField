@@ -11,16 +11,22 @@ function App() {
           type="number"
           locale="en"
           onFilterChange={(filter) => console.log('Ehh filter changed', filter)}
-          onFilterValueChange={(filter, value) =>
-            console.log('Filter value changed', filter, value)
+          onChangeFilterValue={(filter, value) =>
+            console.log('On change Filter value', filter, value)
+          }
+          onFilterValueChanged={(filter, value) =>
+            console.log('Filter value has been changed', filter, value)
           }
         />
         <FilterField
           type="text"
           locale="en"
           onFilterChange={(filter) => console.log('Ehh filter changed', filter)}
-          onFilterValueChange={(filter, value) =>
-            console.log('Filter value changed', filter, value)
+          onChangeFilterValue={(filter, value) =>
+            console.log('On change Filter value', filter, value)
+          }
+          onFilterValueChanged={(filter, value) =>
+            console.log('Filter value has been changed', filter, value)
           }
         />
       </div>

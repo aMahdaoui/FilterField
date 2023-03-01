@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Input } from '@mui/material';
 
-import { extractFilterValueFromRangeValues } from './helpers';
+import { extractFilterValueFromRangeValues, revealValueBasedOnFilter } from './helpers';
 
 import {
   FILTER_NUMBER,
@@ -19,15 +19,28 @@ function InputFilterField(props: InputFilterFieldProps) {
   const onValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, id } = event.target;
     if (props.onChange) {
-      if (RANGE_FILTER.includes(filter)) {
-        const isFirstValue = id === ID_RANGE_FILTER_1;
-        const rangeValue = extractFilterValueFromRangeValues(
-          value,
-          isFirstValue,
-          filterValue
-        );
-        props.onChange && props.onChange(rangeValue);
-      } else props.onChange && props.onChange([value]);
+      const isRangeFilter = RANGE_FILTER.includes(filter)
+      const isFirstValue = id === ID_RANGE_FILTER_1;
+      const finalValue = extractFilterValueFromRangeValues(
+        value,
+        isFirstValue,
+        isRangeFilter,
+        filterValue
+      );
+      props.onChange(finalValue);
+    }
+  };
+
+  const onValueBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    const { value, id } = event.target;
+    if (props.onBlur) {
+      const isFirstValue = id === ID_RANGE_FILTER_1;
+      const finalValue = revealValueBasedOnFilter(value, filter,
+        isFirstValue,
+        filterValue
+      );
+
+      props.onBlur(finalValue);
     }
   };
 
@@ -39,16 +52,16 @@ function InputFilterField(props: InputFilterFieldProps) {
           type={filterType as string}
           // placeholder={t('input.placeholderVal1') || ''}
           placeholder={'val 1'}
-          value={filterValue[0]}
           onChange={onValueChange}
+          onBlur={onValueBlur}
         />
         <span style={{ margin: '0px 20px' }}>{'&'}</span>
         <Input
           id={ID_RANGE_FILTER_2}
           type={filterType as string}
           placeholder={'val 2'}
-          value={filterValue[1] || ''}
           onChange={onValueChange}
+          onBlur={onValueBlur}
         />
       </div>
     );
@@ -58,8 +71,8 @@ function InputFilterField(props: InputFilterFieldProps) {
       id={'filterinput'}
       type={(filterType as string) || 'text'}
       placeholder={t('input.placeholder') || ''}
-      value={filterValue[0]}
       onChange={onValueChange}
+      onBlur={onValueBlur}
     />
   );
 }

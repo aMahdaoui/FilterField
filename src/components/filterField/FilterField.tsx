@@ -36,9 +36,12 @@ function FilterField(props: FilterFieldProps) {
     setFilter(filter);
     props.onFilterChange && props.onFilterChange(filter);
   };
-  const onValueChange = (value: (string | number)[]) => {
+  const onChangeValue = (value: (string | number)[]) => {
+    props.onChangeFilterValue && props.onChangeFilterValue(filter, value);
+  };
+  const onValueChanged = (value: (string | number)[]) => {
     setFilterValue(value);
-    props.onFilterValueChange && props.onFilterValueChange(filter, value);
+    props.onFilterValueChanged && props.onFilterValueChanged(filter, value);
   };
 
   return (
@@ -52,7 +55,8 @@ function FilterField(props: FilterFieldProps) {
         filterType={type}
         filter={filter}
         filterValue={filterValue}
-        onChange={onValueChange}
+        onChange={onChangeValue}
+        onBlur={onValueChanged}
       />
 
       {/* 
@@ -63,7 +67,7 @@ function FilterField(props: FilterFieldProps) {
                 : <InputFilterField
                     type={type}
                     filterValue={filterValue}
-                    onChange={onValueChange}
+                    onChange={onChangeValue}
                 />
             } */}
     </div>
