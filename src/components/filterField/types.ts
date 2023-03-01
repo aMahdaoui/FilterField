@@ -1,4 +1,4 @@
-export type Filter = string; // ! To extract filter op types later
+export type FilterName = string; // ! To extract filter op types later
 export type FilterType = 'text' | 'number' | 'date';
 export type FilterOption = {
   // text: string;

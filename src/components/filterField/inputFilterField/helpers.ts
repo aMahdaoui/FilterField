@@ -1,24 +1,21 @@
-import { RANGE_FILTER } from '../config/constants';
+import { RANGE_FILTERS } from '../config/constants';
 
-export const extractFilterValueFromRangeValues = (
-  value: string | number,
-  isFirstValue: boolean,
-  isRangeFilter: boolean,
-  rangeValues: (string | number)[]
-): (string | number)[] => {
-  // const value1 = Number(rangeValues[0])
-  // const value2 = parseInt(rangeValues[1], 10)
-
-  if (!isRangeFilter) return [value];
-  return isFirstValue ? [value, rangeValues[1]] : [rangeValues[0], value];
-};
+/**
+ * Get the updated value of the Filter, used after the user type/modify
+ * the input field in InputFilterField component
+ * @param value The new typed value
+ * @param filterName The name of the filter
+ * @param isFirstValue Reflect wether the updated value is related to the first input of RANGE_FILTERS
+ * @param oldValues : Filter old values
+ * @returns {array} Array of updated values
+ */
 export const revealValueBasedOnFilter = (
   value: string | number,
-  filter: string,
+  filterName: string,
   isFirstValue: boolean,
   oldValues: (string | number)[]
 ): (string | number)[] => {
-  const isRangeFilter = RANGE_FILTER.includes(filter);
+  const isRangeFilter = RANGE_FILTERS.includes(filterName);
 
   if (!isRangeFilter) return [value];
   return isFirstValue ? [value, oldValues[1]] : [oldValues[0], value];
