@@ -21,7 +21,7 @@
       "DATE_RANGE": "Date and Time range"
     },
     "input": {
-      "placeholder": "type your value here"
+      "placeholder": "type value"
     }
   }
 }
