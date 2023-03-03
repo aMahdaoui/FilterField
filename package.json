@@ -11,10 +11,6 @@
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,tsx .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|tsx|json)\""
   },
-  "dependencies": {
-    "react": "16.8.0 || >=17.x",
-    "react-dom": "16.8.0 || >=17.x"
-  },
   "peerDependencies": {
     "react": "16.8.0 || >=17.x",
     "react-dom": "16.8.0 || >=17.x"
