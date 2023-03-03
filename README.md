@@ -1,6 +1,6 @@
 ![alt FilterField](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/filterFiled.png)
 
-### 📑 Installation
+## 📑 Installation
 
 Install via NPM:
 
@@ -14,7 +14,7 @@ Or via YARN:
 yarn add react-mui-filter
 ```
 
-### 📖 Usage
+## 📖 Usage
 
 #### Basic Text Filter
 
@@ -22,7 +22,7 @@ The `FilterField` component uses **type** props (which can take: _text_ or _numb
 
 When the filter icon is clicked, a menu will appear letting the user pick the filter he needs.
 
-##### -> FilterField props:
+##### FilterField props:
 
 - `type`: whether 'text' or 'number' default is 'text'
 - `locale`: to choose the FilterField language default is 'en' (see supported languages below)
@@ -60,7 +60,7 @@ const MyApp = () => (
 The list of filters depends on the selected filter type.
 Since react-mui-filter support currently only text and number input types, the list is restricted as the following :
 
-##### -> text
+##### text
 
 | filter code  | filter name  | description                                                                                    |
 | ------------ | ------------ | ---------------------------------------------------------------------------------------------- |
@@ -69,7 +69,7 @@ Since react-mui-filter support currently only text and number input types, the l
 | EE           | Equal        | To get values equal to the user has entered in the input field                                 |
 | NE           | Not Equal    | To get values NOT equal to what the user has entered in the input field                        |
 
-##### -> number
+##### number
 
 | filter code | filter name           | description                                                                       |
 | ----------- | --------------------- | --------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ Since react-mui-filter support currently only text and number input types, the l
 
 <br />
 
-### ✨ Useful use cases
+## ✨ Useful use cases
 
 ##### Can be used to perform filtrable requests from the server.
 
@@ -96,16 +96,17 @@ A user can filter a table based on the chosen value and filter :
 ![alt useful use case](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/FilterField-useful.gif)
 
 <br />
-### 🌐 Languages
+
+## 🌐 Languages
 
 Currently react-mui-filter support 3 languages :
 
 - 🇺🇸 English (English - en), Default
 - 🇫🇷 French (Français - fr)
 - 🇲🇦 Arabic (العربية - ar)
+  <br />
 
-<br />
-### 💻 Technologies
+## 💻 Technologies
 
 react-mui-filter has been built using the [viteJS](https://vitejs.dev/) and basically with the following tools & libs :
 
@@ -114,9 +115,9 @@ react-mui-filter has been built using the [viteJS](https://vitejs.dev/) and basi
 - I18n : using react-i18next library
 - Testing : using vitest and react-testing-library (unit testing)
 - Linting & code formatting : ESlint & prettier
+  <br />
 
-<br />
-### 🚧 Next steps
+## 🚧 Next steps
 
 - Add new filter type : **date** to be implemented using material date-picker.
 - Add 'pattern' props to the FilterField component (some commonly used pattern email, url, upperCase only, ...)
@@ -124,8 +125,8 @@ react-mui-filter has been built using the [viteJS](https://vitejs.dev/) and basi
 - validate value according to patterns
 - Enhance unit test coverage
 - ...
+  <br />
 
-<br />
 ## License
 
 [MIT]
