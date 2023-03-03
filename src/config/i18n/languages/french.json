@@ -21,7 +21,8 @@
       "DATE_RANGE": "Intervale de dates"
     },
     "input": {
-      "placeholder": "taper une valeur"
+      "placeholder": "taper une valeur",
+      "label": "Valeur de filter"
     }
   }
 }

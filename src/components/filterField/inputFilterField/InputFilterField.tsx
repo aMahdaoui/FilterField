@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Input } from '@mui/material';
+import { TextField, TextFieldProps } from '@mui/material';
 
 import { revealValueBasedOnFilter } from './helpers';
 
@@ -51,33 +51,34 @@ function InputFilterField(props: InputFilterFieldProps) {
     }
   };
 
-  const _sharedProps = {
+  const _sharedProps: TextFieldProps = {
     type: filterType as string || 'text',
-    placeholder: t('input.placeholder') || '',
-    onChange: onValueChange,
-    onBlur: onValueBlur,
-    onKeyDown: handleKeyDown,
+    variant: 'standard',
+    label: t('input.label') || '',
+    inputProps: {
+      onChange: onValueChange,
+      onBlur: onValueBlur,
+      onKeyDown: handleKeyDown,
+    }
   }
 
   if (filterType === FILTER_NUMBER && RANGE_FILTERS.includes(filter)) {
     return (
       <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-        <Input
+        <TextField
           id={ID_RANGE_FILTER_INPUT_1}
           {..._sharedProps}
-        // placeholder={'val 1'}
         />
         <span style={{ margin: '0px 20px' }}>{'&'}</span>
-        <Input
+        <TextField
           id={ID_RANGE_FILTER_INPUT_2}
           {..._sharedProps}
-        // placeholder={'val 2'}
         />
       </div>
     );
   }
   return (
-    <Input
+    <TextField
       id={ID_FILTER_INPUT}
       {..._sharedProps}
     />

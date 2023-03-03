@@ -21,7 +21,8 @@
       "DATE_RANGE": "Date and Time range"
     },
     "input": {
-      "placeholder": "type value"
+      "placeholder": "type a value",
+      "label": "Filter value"
     }
   }
 }
