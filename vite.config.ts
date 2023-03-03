@@ -9,7 +9,7 @@ import * as packageJson from './package.json';
 // const { EsLinter, linterPlugin } = EsLint;
 
 // https://vitejs.dev/config/
-export default defineConfig((configEnv) => ({
+export default defineConfig(() => ({
   plugins: [
     dts({
       include: ['src/components/'],
@@ -29,7 +29,7 @@ export default defineConfig((configEnv) => ({
   build: {
     lib: {
       entry: resolve('src', 'components/index.ts'),
-      name: 'ReactViteLibrary',
+      name: 'react-mui-filter',
       formats: ['es', 'umd'],
       fileName: (format) => `react-mui-filter.${format}.js`,
     },
