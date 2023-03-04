@@ -1,5 +1,17 @@
 ![alt FilterField](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/filterFiled.png)
 
+[![NPM version][npm-image]][npm-url] [![Build][github-build]][github-build-url] ![npm-typescript] [![License][github-license]][github-license-url]
+
+[npm-url]: https://www.npmjs.com/package/react-mui-filter
+[npm-image]: https://img.shields.io/npm/v/react-mui-filter
+[github-license]: https://img.shields.io/github/license/aMahdaoui/FilterField
+[github-license-url]: https://github.com/aMahdaoui/FilterField/blob/master/LICENSE
+[github-build]: https://github.com/aMahdaoui/FilterField/actions/workflows/publish.yml/badge.svg
+[github-build-url]: https://github.com/aMahdaoui/FilterField/actions/workflows/publish.yml
+[npm-typescript]: https://img.shields.io/npm/types/react-mui-filter
+
+This repository is used to create [react-mui-filter](https://www.npmjs.com/package/react-mui-filter) , an NPM package faciltate filtring data locally or retrieved from the server, based on the filter and the value the user enter.
+
 ## 📑 Installation
 
 Install via NPM:
@@ -85,7 +97,7 @@ Since react-mui-filter support currently only text and number input types, the l
 
 ## ✨ Useful use cases
 
-##### Can be used to perform filtrable requests from the server.
+#### Can be used to perform filtrable requests from the server.
 
 The values and the filter selected by the user can be used to formulate the request, by adding them properly to the payload or injecting them in the query-string parameters to retrieve filtrable data.
 
