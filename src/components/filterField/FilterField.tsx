@@ -12,7 +12,7 @@ import { FilterFieldProps, FilterType } from './types';
 // import DateFilterField from './dateFilterField/DateFilterField';
 
 import '../../config/i18n/i18n';
-import './filterField.css';
+import './styles/filterField.css';
 
 function FilterField(props: FilterFieldProps) {
   const { type, locale } = props;

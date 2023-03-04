@@ -35,6 +35,7 @@
     "react-i18next": "12.1.4",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
+    "vite-plugin-css-injected-by-js": "3.0.1",
     "vite-plugin-dts": "^2.0.2",
     "vite-tsconfig-paths": "^4.0.5",
     "vitest": "^0.29.1"
@@ -45,7 +46,7 @@
   ],
   "main": "./dist/react-mui-filter.umd.js",
   "module": "./dist/react-mui-filter.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/components/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/aMahdaoui/FilterField"

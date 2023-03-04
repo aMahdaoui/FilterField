@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import tsConfigPaths from 'vite-tsconfig-paths';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 import * as packageJson from './package.json';
 // import EsLint from 'vite-plugin-linter';
@@ -11,11 +12,12 @@ import * as packageJson from './package.json';
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
   plugins: [
+    react(),
     dts({
       include: ['src/components/'],
     }),
-    react(),
     tsConfigPaths(),
+    cssInjectedByJsPlugin(),
     // linterPlugin({
     //   include: ['./src}/**/*.{ts,tsx}'],
     //   linters: [new EsLinter({ configEnv })],

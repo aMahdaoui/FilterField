@@ -64,12 +64,12 @@ function InputFilterField(props: InputFilterFieldProps) {
 
   if (filterType === FILTER_NUMBER && RANGE_FILTERS.includes(filter)) {
     return (
-      <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+      <div className='mui-inputBetweenWrapper'>
         <TextField
           id={ID_RANGE_FILTER_INPUT_1}
           {..._sharedProps}
         />
-        <span style={{ margin: '0px 20px' }}>{'&'}</span>
+        <span className='mui-spanBetween'>{'&'}</span>
         <TextField
           id={ID_RANGE_FILTER_INPUT_2}
           {..._sharedProps}

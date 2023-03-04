@@ -3546,6 +3546,11 @@ vite-node@0.29.1:
     picocolors "^1.0.0"
     vite "^3.0.0 || ^4.0.0"
 
+vite-plugin-css-injected-by-js@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-css-injected-by-js/-/vite-plugin-css-injected-by-js-3.0.1.tgz#59a32449b53666c2cee2b74fa4867897fa817bd0"
+  integrity sha512-M4Pv/eJnzEk13T06g79ho/qZXnkonkNs16hQZsK/zik4m1BQAVsHFHBvls0BVW8MVrPl8tvf/jWCZLoX6Khgnw==
+
 vite-plugin-dts@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-2.0.2.tgz#ecee6198830012ed3e741ad9c1c5223f99e49546"
