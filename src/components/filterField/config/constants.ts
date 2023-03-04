@@ -82,7 +82,10 @@ export const FILTERS = {
 export const FILTER_TEXT = 'text';
 export const FILTER_NUMBER = 'number';
 export const FILTER_DATE = 'date';
-export const RANGE_FILTER = ['BETWEEN', 'NOT_BETWEEN'];
 
-export const ID_RANGE_FILTER_1 = 'rangeFilter1';
-export const ID_RANGE_FILTER_2 = 'rangeFilter2';
+export const ID_FILTER_INPUT = 'inputFilter';
+// filters based on two values to perform filtring
+// e.g get values BETWEEN number1 and number2
+export const RANGE_FILTERS = ['BETWEEN', 'NOT_BETWEEN'];
+export const ID_RANGE_FILTER_INPUT_1 = 'rangeFilter1';
+export const ID_RANGE_FILTER_INPUT_2 = 'rangeFilter2';

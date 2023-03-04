@@ -12,9 +12,9 @@ import { FilterFieldProps, FilterType } from './types';
 // import DateFilterField from './dateFilterField/DateFilterField';
 
 import '../../config/i18n/i18n';
-import './filterField.css';
+import './styles/filterField.css';
 
-function TextFilter(props: FilterFieldProps) {
+function FilterField(props: FilterFieldProps) {
   const { type, locale } = props;
 
   const [lang, setLang] = useState('en');
@@ -36,9 +36,12 @@ function TextFilter(props: FilterFieldProps) {
     setFilter(filter);
     props.onFilterChange && props.onFilterChange(filter);
   };
-  const onValueChange = (value: (string | number)[]) => {
+  const onChangeValue = (value: (string | number)[]) => {
+    props.onChangeFilterValue && props.onChangeFilterValue(filter, value);
+  };
+  const onValueChanged = (value: (string | number)[]) => {
     setFilterValue(value);
-    props.onFilterValueChange && props.onFilterValueChange(filter, value);
+    props.onFilterValueChanged && props.onFilterValueChanged(filter, value);
   };
 
   return (
@@ -52,7 +55,8 @@ function TextFilter(props: FilterFieldProps) {
         filterType={type}
         filter={filter}
         filterValue={filterValue}
-        onChange={onValueChange}
+        onChange={onChangeValue}
+        onBlur={onValueChanged}
       />
 
       {/* 
@@ -63,11 +67,11 @@ function TextFilter(props: FilterFieldProps) {
                 : <InputFilterField
                     type={type}
                     filterValue={filterValue}
-                    onChange={onValueChange}
+                    onChange={onChangeValue}
                 />
             } */}
     </div>
   );
 }
 
-export default TextFilter;
+export default FilterField;

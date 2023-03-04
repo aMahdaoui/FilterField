@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-import { getAllFiltersByType, getFilterByType } from './helpers';
+import { getAllFiltersByType, getFilterPropertiesByType } from './helpers';
 import { IconButton, ListItemIcon, ListItemText } from '@mui/material';
 import { FilterMenuProps } from '../types';
 
@@ -25,7 +25,7 @@ export default function FilterMenu(props: FilterMenuProps) {
     handleClose();
   };
 
-  const icone = getFilterByType(filterType, filter)?.icon;
+  const icone = getFilterPropertiesByType(filterType, filter)?.icon;
   const allFilters = getAllFiltersByType(filterType);
 
   return (

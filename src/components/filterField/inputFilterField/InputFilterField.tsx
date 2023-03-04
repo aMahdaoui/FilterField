@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { Input } from '@mui/material';
+import { TextField, TextFieldProps } from '@mui/material';
 
-import { extractFilterValueFromRangeValues } from './helpers';
+import { revealValueBasedOnFilter } from './helpers';
 
 import {
   FILTER_NUMBER,
-  ID_RANGE_FILTER_1,
-  ID_RANGE_FILTER_2,
-  RANGE_FILTER,
+  ID_FILTER_INPUT,
+  ID_RANGE_FILTER_INPUT_1,
+  ID_RANGE_FILTER_INPUT_2,
+  RANGE_FILTERS,
 } from '../config/constants';
 import { InputFilterFieldProps } from '../types';
 
@@ -19,47 +20,67 @@ function InputFilterField(props: InputFilterFieldProps) {
   const onValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, id } = event.target;
     if (props.onChange) {
-      if (RANGE_FILTER.includes(filter)) {
-        const isFirstValue = id === ID_RANGE_FILTER_1;
-        const rangeValue = extractFilterValueFromRangeValues(
-          value,
-          isFirstValue,
-          filterValue
-        );
-        props.onChange && props.onChange(rangeValue);
-      } else props.onChange && props.onChange([value]);
+      const isFirstValue = id === ID_RANGE_FILTER_INPUT_1;
+      const finalValue = revealValueBasedOnFilter(
+        value,
+        filter,
+        isFirstValue,
+        filterValue
+      );
+      props.onChange(finalValue);
     }
   };
 
-  if (filterType === FILTER_NUMBER && RANGE_FILTER.includes(filter)) {
+  const onValueBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    const { value, id } = event.target;
+    if (props.onBlur) {
+      const isFirstValue = id === ID_RANGE_FILTER_INPUT_1;
+      const finalValue = revealValueBasedOnFilter(
+        value,
+        filter,
+        isFirstValue,
+        filterValue
+      );
+      props.onBlur(finalValue);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && props.onBlur) {
+      onValueBlur(event as unknown as React.FocusEvent<HTMLInputElement>);
+    }
+  };
+
+  const _sharedProps: TextFieldProps = {
+    type: filterType as string || 'text',
+    variant: 'standard',
+    label: t('input.label') || '',
+    inputProps: {
+      onChange: onValueChange,
+      onBlur: onValueBlur,
+      onKeyDown: handleKeyDown,
+    }
+  }
+
+  if (filterType === FILTER_NUMBER && RANGE_FILTERS.includes(filter)) {
     return (
-      <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-        <Input
-          id={ID_RANGE_FILTER_1}
-          type={filterType as string}
-          // placeholder={t('input.placeholderVal1') || ''}
-          placeholder={'val 1'}
-          value={filterValue[0]}
-          onChange={onValueChange}
+      <div className='mui-inputBetweenWrapper'>
+        <TextField
+          id={ID_RANGE_FILTER_INPUT_1}
+          {..._sharedProps}
         />
-        <span style={{ margin: '0px 20px' }}>{'&'}</span>
-        <Input
-          id={ID_RANGE_FILTER_2}
-          type={filterType as string}
-          placeholder={'val 2'}
-          value={filterValue[1] || ''}
-          onChange={onValueChange}
+        <span className='mui-spanBetween'>{'&'}</span>
+        <TextField
+          id={ID_RANGE_FILTER_INPUT_2}
+          {..._sharedProps}
         />
       </div>
     );
   }
   return (
-    <Input
-      id={'filterinput'}
-      type={(filterType as string) || 'text'}
-      placeholder={t('input.placeholder') || ''}
-      value={filterValue[0]}
-      onChange={onValueChange}
+    <TextField
+      id={ID_FILTER_INPUT}
+      {..._sharedProps}
     />
   );
 }
