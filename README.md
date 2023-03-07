@@ -1,4 +1,4 @@
-![alt FilterField](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/filterFiled.png)
+# ![alt FilterField](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/filterFiled.png)
 
 [![NPM version][npm-image]][npm-url] [![Build][github-build]][github-build-url] ![npm-typescript] [![License][github-license]][github-license-url]
 
@@ -10,7 +10,17 @@
 [github-build-url]: https://github.com/aMahdaoui/FilterField/actions/workflows/publish.yml
 [npm-typescript]: https://img.shields.io/npm/types/react-mui-filter
 
-This repository is used to create [react-mui-filter](https://www.npmjs.com/package/react-mui-filter) , an NPM package faciltate filtring data locally or retrieved from the server, based on the filter and the value the user enter.
+_**react-mui-filter**_ provides FilterField component which gives the user the possibility to choose the filter he needs while searching for a particular value.
+
+#### Can be used to perform filtrable requests from the server.
+
+The values and the filter selected by the user can be used to formulate the request, by adding them properly to the payload or injecting them in the query-string parameters to retrieve filtrable data.
+
+A user can filter a table based on the chosen value and filter :
+
+![alt useful use case](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/FilterField-useful.gif)
+
+<br />
 
 ## 📑 Installation
 
@@ -63,10 +73,6 @@ const MyApp = () => (
 );
 ```
 
-##### Demo
-
-![alt simple](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/FilterField-basic.gif)
-
 #### Filters list
 
 The list of filters depends on the selected filter type.
@@ -92,20 +98,6 @@ Since react-mui-filter support currently only text and number input types, the l
 | GT          | Greater than          | To get values great than the entered value                                        |
 | GTE         | Greater than or equal | To get values great than or equal to the entered value                            |
 | BETWEEN     | Between               | To get values between the range specified by the user (between value 1 & value 2) |
-
-<br />
-
-## ✨ Useful use cases
-
-#### Can be used to perform filtrable requests from the server.
-
-The values and the filter selected by the user can be used to formulate the request, by adding them properly to the payload or injecting them in the query-string parameters to retrieve filtrable data.
-
-##### Example
-
-A user can filter a table based on the chosen value and filter :
-
-![alt useful use case](https://raw.githubusercontent.com/aMahdaoui/FilterField/main/.github/assets/FilterField-useful.gif)
 
 <br />
 
