@@ -53,7 +53,12 @@
     "type": "git",
     "url": "https://github.com/aMahdaoui/FilterField"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "filter",
+    "rect filter",
+    "material ui filter"
+  ],
   "author": "Mahdaoui abdessadeq (sadek)",
   "bugs": {
     "url": "https://github.com/aMahdaoui/FilterField/issues"
